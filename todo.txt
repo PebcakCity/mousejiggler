@@ -1,0 +1,30 @@
+Upgrade ideas:
+
+1. Move RootCommand setup out of the mutex check and always parse the commandline
+settings regardless.  If mutex check succeeds, launch the MainForm.  Else, show
+the MainForm (need to get a reference to the existing MainForm instance, then
+call a Show event on it, maybe passing in new config data?  Might need to create
+ConfigEventArgs class that wraps a Config object in EventArgs.  See links below
+for how to get previous running instance's MainForm & fire events using reflection.
+
+https://stackoverflow.com/questions/697058/single-instance-windows-forms-application-and-how-to-get-reference-on-it
+https://stackoverflow.com/questions/372974/winforms-how-to-programmatically-fire-an-event-handler
+
+ISSUE: We can show windows that are not hidden pretty easily.  Hidden ones, not so much.
+
+
+2. Rethink how the whole saving settings things works. It's... a little odd.
+
+--save-settings behavior is weird... If you have a setting enabled in the config
+and then disable it with a commandline switch and set --save-settings false, no
+amount of toggling the feature in the GUI will cause the setting to be saved
+upon exit.  This was by design but I think it's weird and should be dropped.
+If this behavior is kept, there should at least be an indicator in the program
+that settings for this session are only temporary.
+
+I think a BETTER solution is to NOT automatically persist settings on exit and
+instead to have a `Save` button in the GUI that will save your settings manually.
+Remove the --save-settings parameter altogether and let any unsaved settings die
+with the current application instance at exit.
+
+DONE
