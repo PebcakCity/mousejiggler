@@ -33,7 +33,7 @@ namespace PebcakCity.MouseJiggler
             }
         }
 
-        internal void Write()
+        internal bool Write()
         {
             string assemblyDir = System.AppContext.BaseDirectory;
             this.Filename ??= Path.Combine(assemblyDir, DefaultConfig);
@@ -45,10 +45,12 @@ namespace PebcakCity.MouseJiggler
                     WriteIndented = true,
                 };
                 JsonSerializer.Serialize(json, this, jsonOptions);
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error writing config: {ex}");
+                return false;
             }
         }
     }

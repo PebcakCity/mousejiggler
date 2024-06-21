@@ -1,5 +1,4 @@
 using System.Reflection;
-using System.Reflection.Metadata;
 
 namespace PebcakCity.MouseJiggler
 {
@@ -51,6 +50,15 @@ namespace PebcakCity.MouseJiggler
                 }
             }
             base.WndProc(ref m);
+        }
+
+        private void btnSaveSettings_Clicked(object sender, EventArgs e)
+        {
+            if (Config is not null && Config.Write())
+            {
+                MessageBox.Show("Settings saved.", "Mouse Jiggler",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnAbout_Clicked(object sender, EventArgs e)
@@ -175,7 +183,7 @@ namespace PebcakCity.MouseJiggler
         }
 
 
-        private void RestoreFromTray()
+        public void RestoreFromTray()
         {
             this.Visible        = true;
             this.ShowInTaskbar  = true;

@@ -39,6 +39,7 @@
             labelInterval = new Label();
             upDownInterval = new NumericUpDown();
             panelSettings = new Panel();
+            btnSaveSettings = new Button();
             cbMinimize = new CheckBox();
             cbJiggleOnStart = new CheckBox();
             cbZen = new CheckBox();
@@ -140,6 +141,7 @@
             // 
             // panelSettings
             // 
+            panelSettings.Controls.Add(btnSaveSettings);
             panelSettings.Controls.Add(cbMinimize);
             panelSettings.Controls.Add(labelInterval);
             panelSettings.Controls.Add(upDownInterval);
@@ -147,9 +149,19 @@
             panelSettings.Controls.Add(cbZen);
             panelSettings.Location = new Point(12, 42);
             panelSettings.Name = "panelSettings";
-            panelSettings.Size = new Size(279, 66);
+            panelSettings.Size = new Size(279, 86);
             panelSettings.TabIndex = 2;
             panelSettings.Visible = false;
+            // 
+            // btnSaveSettings
+            // 
+            btnSaveSettings.Location = new Point(103, 57);
+            btnSaveSettings.Name = "btnSaveSettings";
+            btnSaveSettings.Size = new Size(75, 23);
+            btnSaveSettings.TabIndex = 3;
+            btnSaveSettings.Text = "Save";
+            btnSaveSettings.UseVisualStyleBackColor = true;
+            btnSaveSettings.Click +=  btnSaveSettings_Clicked ;
             // 
             // cbMinimize
             // 
@@ -242,5 +254,6 @@
         private NotifyIcon niTray;
         private Button btnAbout;
         private ToolTip toolTip1;
+        private Button btnSaveSettings;
     }
 }
