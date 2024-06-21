@@ -2,3 +2,5 @@ INPUT
 SendInput
 AttachConsole
 FreeConsole
+ShowWindow
+SetForegroundWindow
