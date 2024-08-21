@@ -2,3 +2,6 @@ INPUT
 SendInput
 AttachConsole
 FreeConsole
+HWND
+FindWindowEx
+ShowWindow

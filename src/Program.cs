@@ -2,6 +2,8 @@ using System.CommandLine;
 using System.CommandLine.Parsing;
 
 using Windows.Win32;
+using Windows.Win32.Foundation;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace PebcakCity.MouseJiggler
 {
@@ -113,8 +115,13 @@ namespace PebcakCity.MouseJiggler
                     }
                     else
                     {
-                        MessageBox.Show("An instance is already running.", "Mouse Jiggler",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // Show the old instance if hidden
+                        Console.WriteLine("An instance of MouseJiggler is already running.");
+                        HWND oldInstance = PInvoke.FindWindowEx((HWND)0, (HWND)0, null, "Mouse Jiggler");
+                        if ( oldInstance != IntPtr.Zero )
+                        {
+                            PInvoke.ShowWindow(oldInstance, SHOW_WINDOW_CMD.SW_SHOW);
+                        }
                     }
                 }
                 return 0;

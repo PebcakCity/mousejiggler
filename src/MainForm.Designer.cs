@@ -47,7 +47,7 @@
             niTray = new NotifyIcon(components);
             toolTip1 = new ToolTip(components);
             panelMain.SuspendLayout();
-            ( (System.ComponentModel.ISupportInitialize)upDownInterval ).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)upDownInterval).BeginInit();
             panelSettings.SuspendLayout();
             SuspendLayout();
             // 
@@ -80,7 +80,7 @@
             btnAbout.Text = "?";
             toolTip1.SetToolTip(btnAbout, "What's this?");
             btnAbout.UseVisualStyleBackColor = true;
-            btnAbout.Click +=  btnAbout_Clicked ;
+            btnAbout.Click += btnAbout_Clicked;
             // 
             // cbSettings
             // 
@@ -92,7 +92,7 @@
             cbSettings.Text = "Settings...";
             toolTip1.SetToolTip(cbSettings, "Show/hide settings panel");
             cbSettings.UseVisualStyleBackColor = true;
-            cbSettings.CheckedChanged +=  cbSettings_CheckedChanged ;
+            cbSettings.CheckedChanged += cbSettings_CheckedChanged;
             // 
             // btnTrayify
             // 
@@ -103,7 +103,7 @@
             btnTrayify.Text = "🔽";
             toolTip1.SetToolTip(btnTrayify, "Minimize to tray");
             btnTrayify.UseVisualStyleBackColor = true;
-            btnTrayify.Click +=  btnTrayify_Click ;
+            btnTrayify.Click += btnTrayify_Click;
             // 
             // cbJiggling
             // 
@@ -115,7 +115,7 @@
             cbJiggling.Text = "Jiggling?";
             toolTip1.SetToolTip(cbJiggling, "Enable/disable jiggling");
             cbJiggling.UseVisualStyleBackColor = true;
-            cbJiggling.CheckedChanged +=  cbJiggling_CheckedChanged ;
+            cbJiggling.CheckedChanged += cbJiggling_CheckedChanged;
             // 
             // labelInterval
             // 
@@ -137,7 +137,7 @@
             upDownInterval.TabIndex = 1;
             toolTip1.SetToolTip(upDownInterval, "Seconds between jiggles");
             upDownInterval.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            upDownInterval.ValueChanged +=  upDownInterval_ValueChanged ;
+            upDownInterval.ValueChanged += upDownInterval_ValueChanged;
             // 
             // panelSettings
             // 
@@ -161,7 +161,7 @@
             btnSaveSettings.TabIndex = 3;
             btnSaveSettings.Text = "Save";
             btnSaveSettings.UseVisualStyleBackColor = true;
-            btnSaveSettings.Click +=  btnSaveSettings_Clicked ;
+            btnSaveSettings.Click += btnSaveSettings_Clicked;
             // 
             // cbMinimize
             // 
@@ -173,7 +173,7 @@
             cbMinimize.Text = "Minimize on start?";
             toolTip1.SetToolTip(cbMinimize, "Minimize to tray on program start");
             cbMinimize.UseVisualStyleBackColor = true;
-            cbMinimize.CheckedChanged +=  cbMinimize_CheckedChanged ;
+            cbMinimize.CheckedChanged += cbMinimize_CheckedChanged;
             // 
             // cbJiggleOnStart
             // 
@@ -185,7 +185,7 @@
             cbJiggleOnStart.Text = "Jiggle on start?";
             toolTip1.SetToolTip(cbJiggleOnStart, "Begin jiggling on program start");
             cbJiggleOnStart.UseVisualStyleBackColor = true;
-            cbJiggleOnStart.CheckedChanged +=  cbJiggleOnStart_CheckedChanged ;
+            cbJiggleOnStart.CheckedChanged += cbJiggleOnStart_CheckedChanged;
             // 
             // cbZen
             // 
@@ -197,19 +197,19 @@
             cbZen.Text = "Zen jiggle?";
             toolTip1.SetToolTip(cbZen, "Jiggle invisibly");
             cbZen.UseVisualStyleBackColor = true;
-            cbZen.CheckedChanged +=  cbZen_CheckedChanged ;
+            cbZen.CheckedChanged += cbZen_CheckedChanged;
             // 
             // jiggleTimer
             // 
             jiggleTimer.Interval = 1000;
-            jiggleTimer.Tick +=  jiggleTimer_Tick ;
+            jiggleTimer.Tick += jiggleTimer_Tick;
             // 
             // niTray
             // 
             niTray.Icon = (Icon)resources.GetObject("niTray.Icon");
             niTray.Text = "Mouse Jiggler";
             niTray.Visible = true;
-            niTray.DoubleClick +=  niTray_DoubleClick ;
+            niTray.DoubleClick += niTray_DoubleClick;
             // 
             // MainForm
             // 
@@ -226,11 +226,11 @@
             MaximizeBox = false;
             Name = "MainForm";
             Text = "Mouse Jiggler";
-            Load +=  MainForm_Load ;
-            Shown +=  MainForm_Shown ;
+            Load += MainForm_Load;
+            Shown += MainForm_Shown;
             panelMain.ResumeLayout(false);
             panelMain.PerformLayout();
-            ( (System.ComponentModel.ISupportInitialize)upDownInterval ).EndInit();
+            ((System.ComponentModel.ISupportInitialize)upDownInterval).EndInit();
             panelSettings.ResumeLayout(false);
             panelSettings.PerformLayout();
             ResumeLayout(false);
@@ -243,7 +243,6 @@
         private Panel panelMain;
         private Label labelInterval;
         private NumericUpDown upDownInterval;
-        private CheckBox cbJiggling;
         private Panel panelSettings;
         private CheckBox cbZen;
         private CheckBox cbMinimize;
@@ -255,5 +254,6 @@
         private Button btnAbout;
         private ToolTip toolTip1;
         private Button btnSaveSettings;
+        private CheckBox cbJiggling;
     }
 }
